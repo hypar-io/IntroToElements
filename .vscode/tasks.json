@@ -7,13 +7,29 @@
             "label": "Switch to Empty Samples",
             "type": "shell",
             "command": "git reset --hard && git checkout no-code",
-            "problemMatcher": []
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "never",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false,
+                "close": true
+            }
         },
         {
             "label": "Switch to Completed Samples",
             "type": "shell",
             "command": "git reset --hard && git checkout main",
-            "problemMatcher": []
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "never",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false,
+                "close": true
+            }
         }
     ]
 }
