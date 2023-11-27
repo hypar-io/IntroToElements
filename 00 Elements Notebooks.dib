@@ -45,8 +45,7 @@ Just like you can return a value from a cell, you can also return and display 3d
 
 #!csharp
 
-var mass = new Mass(Polygon.Star(5, 3, 5),4, new Material("Red", Colors.Red));
-return mass;
+// Create a mass and return it
 
 #!markdown
 

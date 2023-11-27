@@ -21,7 +21,7 @@ Create a new `Vector3` with the `Vector3` constructor:
 
 #!csharp
 
-var myVector = new Vector3(2,4,5);
+// Create a vector
 
 #!markdown
 
@@ -29,10 +29,7 @@ Create a `Line` with the `Line` constructor, and pass it two `Vector3`s:
 
 #!csharp
 
-var a = new Vector3(0,0,0);
-var b = new Vector3(10, 5, 7);
-var line = new Line(a, b);
-return line;
+// Create a line
 
 #!markdown
 
@@ -40,14 +37,7 @@ Create a `Polyline` with the `Polyline` constructor. You can pass it a `List` of
 
 #!csharp
 
-// A slightly more verbose way...
-var points = new List<Vector3>();
-points.Add(new Vector3(0, 0, 0));
-points.Add(new Vector3(2, 0, 0));
-points.Add(new Vector3(2, 2, 0));
-points.Add(new Vector3(0, 2, 0));
-var polyline1 = new Polyline(points);
-return polyline1;
+// Create a polyline
 
 #!markdown
 
@@ -58,8 +48,6 @@ You can skip the `new Vector3` part in many cases.
 #!csharp
 
 // A slightly shorter way to do the same thing:
-var polyline2 = new Polyline((0,0), (2,0), (2,2), (0,2), (0,2,5));
-return polyline2;
 
 #!markdown
 
@@ -68,8 +56,7 @@ A `Polygon` is just like a `Polyline`, except it represents a closed shape, and 
 
 #!csharp
 
-var polygon = new Polygon((0,0), (2,2), (4,0), (4,4), (0,4));
-return polygon;
+// Create a polygon
 
 #!markdown
 
@@ -84,12 +71,7 @@ Also note how we can display multiple polylines at once in a notebook by returni
 
 #!csharp
 
-var rectangle = Polygon.Rectangle(10,10);
-var star = Polygon.Star(5,3,5);
-var l = Polygon.L(2, 2, 0.5);
-var u = Polygon.U(5, 3, 0.75);
-var hexagon = Polygon.Ngon(6, 10);
-return new [] { rectangle, star, l, u, hexagon };
+// Create various polygons
 
 #!markdown
 

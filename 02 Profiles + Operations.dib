@@ -22,10 +22,7 @@ Profiles are basically "Polygons with holes" — and they're a major geometry wo
 
 #!csharp
 
-var outerBoundary = Polygon.Rectangle((0,0), (10, 10));
-var hole = Polygon.Rectangle((4,4), (8, 8));
-var profile = new Profile(outerBoundary, hole);
-return profile;
+// Create a profile
 
 #!markdown
 
@@ -33,11 +30,7 @@ Profiles can have multiple holes, too:
 
 #!csharp
 
-var outerBoundary = Polygon.Rectangle((0,0), (10, 10));
-var hole1 = Polygon.Rectangle((2,2), (4, 4));
-var hole2 = Polygon.Rectangle((6,6), (8, 8));
-var profile = new Profile(outerBoundary, new List<Polygon> { hole1, hole2 });
-return profile;
+// Create a profile with multiple holes
 
 #!markdown
 
@@ -47,13 +40,11 @@ We can also create solid geometry, not just curves. The two most common are the 
 
 #!csharp
 
-var lamina = new Lamina(profile);
-return lamina;
+// Create a lamina from a profile
 
 #!csharp
 
-var extrude = new Extrude(profile, 2, Vector3.ZAxis);
-return extrude;
+// Create an extrude from a profile
 
 #!markdown
 
@@ -61,11 +52,7 @@ return extrude;
 
 #!csharp
 
-using Elements.Geometry.Profiles;
-var rail = new Polyline((0,0), (10,0), (10, 3), (12, 4));
-var crossSection = new WideFlangeProfileFactory().GetProfileByType(WideFlangeProfileType.W24x94);
-var sweep = new Sweep(crossSection, rail, 0, 0, 0, false);
-return sweep;
+// Create a sweep
 
 #!markdown
 
@@ -75,11 +62,7 @@ You can create a `Representation` out of multiple solid operations, for more com
 
 #!csharp
 
-var baseExtrude = new Extrude(Polygon.Ngon(6, 5), 6, new Vector3(0,0,1));
-var void1 = new Extrude(Polygon.Ngon(4, 2), 7, Vector3.ZAxis, true);
-var void2 = new Sweep(Polygon.Star(3, 2, 5), new Line((-5,0,3), (5, 0, 3)),0,0,0, true);
-var representation = new Representation(new List<SolidOperation> { baseExtrude, void1, void2 });
-return representation;
+// Create a representation
 
 #!markdown
 
@@ -95,35 +78,18 @@ among others.
 #!csharp
 
 // Offset
-var baseProfile = new Profile(Polygon.Star(10,6, 5));
-var offsets = Profile.Offset(new [] {baseProfile}, 5);
-return new List<Profile> { baseProfile }.Concat(offsets);
 
 #!csharp
 
 // Intersect
-var p1 = new Profile(Polygon.Star(8,3, 5));
-var p2 = new Profile(Polygon.Rectangle(2, 10));
-var intersection = Profile.Intersection(new[] {p1}, new[] {p2});
-// Use model curves to display with different colors
-var curves = new List<ModelCurve>();
-curves.AddRange(p1.ToModelCurves(null, BuiltInMaterials.XAxis));
-curves.AddRange(p2.ToModelCurves(null, BuiltInMaterials.YAxis));
-curves.AddRange(intersection.SelectMany((p) => p.ToModelCurves(null, BuiltInMaterials.ZAxis)));
-return curves;
 
 #!csharp
 
-return Profile.UnionAll(new [] {p1, p2});
+// Union All
 
 #!csharp
 
-var splitLine1 = new Polyline((-10, 0), (0, 1), (10, 0));
-var splitLine2 = new Polyline((0,-10), (3, 10));
-
-var splits = Profile.Split(new [] {p1}, new Polyline[] {splitLine1, splitLine2});
-var random = new Random(3);
-return splits.Select(s => new Extrude(s, random.NextDouble() * 10, Vector3.ZAxis));
+// Split
 
 #!markdown
 
