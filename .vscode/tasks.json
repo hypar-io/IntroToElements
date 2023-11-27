@@ -6,12 +6,14 @@
         {
             "label": "Switch to Empty Samples",
             "type": "shell",
-            "command": "git reset --hard && git checkout no-code"
+            "command": "git reset --hard && git checkout no-code",
+            "problemMatcher": []
         },
         {
             "label": "Switch to Completed Samples",
             "type": "shell",
-            "command": "git reset --hard && git checkout main"
+            "command": "git reset --hard && git checkout main",
+            "problemMatcher": []
         }
     ]
 }
