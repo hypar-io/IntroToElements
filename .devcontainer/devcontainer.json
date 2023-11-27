@@ -1,0 +1,15 @@
+{
+    "image":"mcr.microsoft.com/devcontainers/universal:2",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-dotnettools.dotnet-interactive-vscode",
+                "ms-dotnettools.csdevkit"
+            ],
+             "settings": {
+                "terminal.integrated.defaultProfile.linux": "zsh",
+                "terminal.integrated.profiles.linux": { "zsh": { "path": "/bin/zsh" } }
+            }
+        }
+    }
+}
