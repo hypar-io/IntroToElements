@@ -1,0 +1,19 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Switch to Empty Samples",
+            "type": "shell",
+            "command": "git reset --hard && git checkout no-code",
+            "problemMatcher": []
+        },
+        {
+            "label": "Switch to Completed Samples",
+            "type": "shell",
+            "command": "git reset --hard && git checkout main",
+            "problemMatcher": []
+        }
+    ]
+}
